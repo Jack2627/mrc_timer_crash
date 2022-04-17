@@ -14,6 +14,7 @@
 		5C43A358280BB5FE008D9D95 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43A357280BB5FE008D9D95 /* main.m */; };
 		5C43A366280C5D15008D9D95 /* ShowAdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43A362280C5D15008D9D95 /* ShowAdViewController.m */; };
 		5C43A367280C5D15008D9D95 /* SimulateAd.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43A365280C5D15008D9D95 /* SimulateAd.m */; };
+		5C43A36D280C6D40008D9D95 /* JKTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C43A36C280C6D40008D9D95 /* JKTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,8 @@
 		5C43A363280C5D15008D9D95 /* SimulateAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulateAd.h; sourceTree = "<group>"; };
 		5C43A364280C5D15008D9D95 /* ShowAdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowAdViewController.h; sourceTree = "<group>"; };
 		5C43A365280C5D15008D9D95 /* SimulateAd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulateAd.m; sourceTree = "<group>"; };
+		5C43A36B280C6D40008D9D95 /* JKTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKTimer.h; sourceTree = "<group>"; };
+		5C43A36C280C6D40008D9D95 /* JKTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,8 @@
 				5C43A362280C5D15008D9D95 /* ShowAdViewController.m */,
 				5C43A363280C5D15008D9D95 /* SimulateAd.h */,
 				5C43A365280C5D15008D9D95 /* SimulateAd.m */,
+				5C43A36B280C6D40008D9D95 /* JKTimer.h */,
+				5C43A36C280C6D40008D9D95 /* JKTimer.m */,
 			);
 			path = TimerCrashVC;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 			files = (
 				5C43A34D280BB5FA008D9D95 /* ViewController.m in Sources */,
 				5C43A347280BB5FA008D9D95 /* AppDelegate.m in Sources */,
+				5C43A36D280C6D40008D9D95 /* JKTimer.m in Sources */,
 				5C43A366280C5D15008D9D95 /* ShowAdViewController.m in Sources */,
 				5C43A358280BB5FE008D9D95 /* main.m in Sources */,
 				5C43A367280C5D15008D9D95 /* SimulateAd.m in Sources */,

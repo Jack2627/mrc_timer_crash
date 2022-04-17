@@ -7,14 +7,15 @@
 
 #import "ShowAdViewController.h"
 #import "SimulateAd.h"
+#import "JKTimer.h"
 
-@interface ShowAdViewController ()<SimulateAdDelegate>
+@interface ShowAdViewController ()<SimulateAdDelegate, JKTimerDelegate>
 
 @end
 
 @implementation ShowAdViewController{
-    NSTimer *_timer;
     SimulateAd *_adObj;
+    JKTimer *_safeTimer;
 }
 
 - (void)viewDidLoad {
@@ -34,6 +35,7 @@
         _adObj.delegate = nil;
         [_adObj release]; _adObj = nil;
     }
+    [self stopTimer];
     [super dealloc];
 }
 
@@ -46,26 +48,18 @@
     [_adObj requestAd];
     
     [self stopTimer];
-    //隐性的[self retain]
-    _timer = [[NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(actionTimeout:) userInfo:nil repeats:NO] retain];
+    _safeTimer = [[JKTimer alloc] init];
+    _safeTimer.delegate = self;
+    [_safeTimer fireTimerWithInterval:3];
     
     self.title = @"Requesting";
 }
 
-- (void)actionTimeout:(NSTimer *)timer{
-    [self stopTimer];
-    if (_adObj) {
-        _adObj.delegate = nil;
-        [_adObj release]; _adObj = nil;
-    }
-    
-    self.title = @"Timeout";
-}
-
 - (void)stopTimer{
-    if (_timer) {
-        [_timer invalidate];    //隐性的[self release],如果此时self没有其他的引用，将进入dealloc，所以在stopTimer后再调用self即是对已经释放过的对象发送消息，造成崩溃
-        [_timer release]; _timer = nil;
+    if (_safeTimer) {
+        [_safeTimer stopTimer];
+        _safeTimer.delegate = nil;
+        [_safeTimer release]; _safeTimer = nil;
     }
 }
 
@@ -79,5 +73,16 @@
     [self stopTimer];
     //如果已经完成dealloc流程再调用self.title即为访问悬垂指针，将会造成崩溃
     self.title = @"Success";
+}
+
+#pragma mark - JKTimerDelegate
+- (void)jk_timeUp{
+    [self stopTimer];
+    if (_adObj) {
+        _adObj.delegate = nil;
+        [_adObj release]; _adObj = nil;
+    }
+    
+    self.title = @"Timeout";
 }
 @end
